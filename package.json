@@ -1,0 +1,28 @@
+{
+  "name": "flakmessenger",
+  "version": "0.0.1",
+  "description": "flak messenger electron rework",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarashunter/flakmessenger.git"
+  },
+  "author": "powch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarashunter/flakmessenger/issues"
+  },
+  "homepage": "https://github.com/sarashunter/flakmessenger#readme",
+  "dependencies": {
+    "electron": "2.0.8",
+    "firebase": "^5.4.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "request": "^2.88.0"
+  }
+}

@@ -424,36 +424,49 @@ document.getElementById('chatlog').addEventListener('scroll', function() {
 
 //TODO: FINISH CONVERSION FROM HERE, DOWN.
 //Function called when post message button is clicked.
-$('#postMessage').on('click', function (event) {
+document.getElementById('postMessage').addEventListener('click', function(event) {
+// $('#postMessage').on('click', function (event) {
     event.preventDefault();
 
-    if ($('#input-message').val()) {
+    var inputMessage = document.getElementById('inputMessage');
+
+    if (inputMessage.value) {
+    // if ($('#input-message').val()) {
         //Calls function that creates the message
-        funcs.msgHandler($('#input-message').val());
+        funcs.msgHandler(inputMessage.value);
+        // funcs.msgHandler($('#input-message').val());
 
         //Clears input field for next message.
-        $('#input-message').val('');
+        inputMessage.value = '';
+        // $('#input-message').val('');
     }
 });
 
 //function to choose your username
-$('#userChoice').on('click', function (event) {
+document.getElementById('userChoice').addEventListener('click', function(event) {
+// $('#userChoice').on('click', function (event) {
     event.preventDefault();
     funcs.setUser();
 });
 
 //allows user to hit enter for both user name choice and messaging. necessary due to use of aesthetically pleasing input groups.
-$('.messageBoard').on('keypress', function (event) {
+document.getElementById('messageBoard').addEventListener('keypress', function (event) {
+// $('.messageBoard').on('keypress', function (event) {
+    var inputMessage = document.getElementById('input-message');
+
     if (event.key === 'Enter') {
         if (!userChosen) {
             funcs.setUser();
         } else {
-            if ($('#input-message').val()) {
+            if (inputMessage.value) {
+            // if ($('#input-message').val()) {
                 //Calls function that creates the message
-                funcs.msgHandler($('#input-message').val());
+                funcs.msgHandler(inputMessage.value);
+                // funcs.msgHandler($('#input-message').val());
 
                 //Clears input field for next message.
-                $('#input-message').val('');
+                // $('#input-message').val('');
+                inputMessage.value = '';
             }
         }
     }
@@ -461,7 +474,8 @@ $('.messageBoard').on('keypress', function (event) {
 
 //Detects when a new user comes online.
 usersOnlineRef.on('child_added', function (snapshot) {
-    funcs.displayUser(snapshot.val().name, snapshot.key, snapshot.val().flag);
+    funcs.displayUser(snapshot.value.name, snapshot.key, snapshot.value.flag);
+    // funcs.displayUser(snapshot.val().name, snapshot.key, snapshot.val().flag);
 })
 
 //Detects when a user changes (name).  Removes old div and puts it in a new one.
